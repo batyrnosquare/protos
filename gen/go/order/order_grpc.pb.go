@@ -4,7 +4,7 @@
 // - protoc             v5.27.0
 // source: order/order.proto
 
-package ssov1
+package orderv1
 
 import (
 	context "context"

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 
 package order;
-option go_package = "degree.sso.v1;ssov1";
+option go_package = "degree.order.v1;orderv1";
 import "google/api/annotations.proto";
 
 service OrderService{
