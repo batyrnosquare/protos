@@ -18,17 +18,6 @@ service OrderService{
       get: "/v1/order/{id}"
     };
   };
-  rpc ListOrder(ListOrderRequest) returns (ListOrderResponse) {
-    option (google.api.http) = {
-      get: "/v1/orders"
-    };
-  };
-  rpc UpdateOrder(UpdateOrderRequest) returns (UpdateOrderResponse) {
-    option (google.api.http) = {
-      put: "/v1/order/{id}"
-      body: "*"
-    };
-  };
   rpc DeleteOrder(DeleteOrderRequest) returns (DeleteOrderResponse) {
     option (google.api.http) = {
       delete: "/v1/order/{id}"
@@ -37,56 +26,44 @@ service OrderService{
 }
 
 message CreateOrderRequest {
-  string name = 1;
-  string description = 2;
-  int64 user_id = 3;
+  string user_id = 1;
+  string menu_item_id = 2;
+  int64 quantity = 3;
 }
 
 message CreateOrderResponse {
-  int64 id = 1;
+  string id = 1;
+
 }
 
 message GetOrderRequest {
-  int64 id = 1;
+  string id = 1;
 }
 
 message GetOrderResponse {
-  int64 id = 1;
+  string id = 1;
   string name = 2;
-  string description = 3;
-  int64 user_id = 4;
-}
-
-message ListOrderRequest {
-  int64 user_id = 1;
-}
-
-message ListOrderResponse {
-  repeated Order orders = 1;
-}
-
-message UpdateOrderRequest {
-  int64 id = 1;
-  string name = 2;
-  string description = 3;
-  int64 user_id = 4;
-}
-
-message UpdateOrderResponse {
-  int64 id = 1;
+  string status = 3;
+  string user_id = 4;
+  string menu_item_id = 5;
+  int64 quantity = 6;
+  string created_at = 7;
 }
 
 message DeleteOrderRequest {
-  int64 id = 1;
+  string id = 1;
 }
 
 message DeleteOrderResponse {
-  int64 id = 1;
+  string id = 1;
 }
 
 message Order {
-  int64 id = 1;
+  string id = 1;
   string name = 2;
-  string description = 3;
-  int64 user_id = 4;
+  string status = 3;
+  string user_id = 4;
+  string menu_item_id = 5;
+  int64 quantity = 6;
+  string created_at = 7;
 }
